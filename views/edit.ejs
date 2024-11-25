@@ -1,0 +1,23 @@
+<%- include("./partials/header.ejs") -%>
+<div class="container">
+  <div class="form-Container">
+    <div class="form-title">
+      <h1>Edit Student</h1>
+    </div>
+
+    <form method="post">
+      <label for="name">Name *</label>
+      <input type="text" name="name" id="name" placeholder="Name" required />
+      <label for="age">Age *</label>
+      <input type="text" name="age" id="age" placeholder="Age" required />
+      <label for="name">Fee *</label>
+      <input type="number" name="name" id="name" placeholder="Fee" required />
+
+      <div>
+        <button type="submit">Add</button>
+        <span><a href="/student">Back To Home</a></span>
+      </div>
+    </form>
+  </div>
+</div>
+<%- include("./partials/footer.ejs") -%>

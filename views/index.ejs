@@ -1,0 +1,56 @@
+<%- include("./partials/header.ejs") -%>
+<div class="container">
+  <div class="form-Container">
+    <div class="form-title">
+      <h1>Add New Student</h1>
+    </div>
+
+    <form method="post">
+      <label for="name">Name *</label>
+      <input type="text" name="name" id="name" placeholder="Name" required />
+      <label for="age">Age *</label>
+      <input type="text" name="age" id="age" placeholder="Age" required />
+      <label for="fee">Fee *</label>
+      <input type="text" name="fee" id="fee" placeholder="Fee" required />
+
+      <button type="submit">Add</button>
+    </form>
+  </div>
+
+  <div class="form-Container">
+    <div class="list-title">
+      <h1>List of Students</h1>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>S/No</th>
+          <th>Name</th>
+          <th>Age</th>
+          <th>Fee</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% getStudentData.forEach((data, index) => { %>
+        <tr>
+          <td><%= index + 1 %></td>
+          <!-- Dynamic S/No -->
+          <td><%= .name data%></td>
+          <td><%= data.age %></td>
+          <td><%= data.fee %></td>
+          <td>
+            <div class="tableBtn">
+              <button>Edit</button>
+
+              <button>Delete</button>
+            </div>
+          </td>
+        </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<%- include("./partials/footer.ejs") -%>
