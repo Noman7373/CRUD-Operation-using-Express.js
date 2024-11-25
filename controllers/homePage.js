@@ -5,9 +5,9 @@ class StudentController {
     try {
       const { name, age, fee } = req.body;
       const studentDoc = new studentModel({
-        name: name,
-        age: age,
-        fee: fee,
+        name,
+        age,
+        fee,
       });
       const saveDoc = await studentDoc.save();
       res.redirect("/student");
@@ -26,16 +26,42 @@ class StudentController {
   };
 
   static editStudent = async (req, res) => {
-    console.log(req.params.id);
-    res.render("edit");
+    try {
+      const { id } = req.params;
+      const editStudentDoc = await studentModel.findById({ _id: id });
+
+      res.render("edit", { editStudentDoc });
+    } catch (error) {
+      console.log(error);
+    }
   };
 
-  static updateStudentById = (req, res) => {
-    res.redirect("/student");
+  static updateStudentById = async (req, res) => {
+    try {
+      const { id } = req.params;
+      const { name, age, fee } = req.body;
+      const editStudentDoc = await studentModel.findByIdAndUpdate(id, {
+        name,
+        age,
+        fee,
+      });
+      res.redirect("/student");
+    } catch (error) {
+      console.log(error);
+    }
   };
 
-  static deleteStudentById = (req, res) => {
-    res.redirect("/student");
+  static deleteStudentById = async (req, res) => {
+    try {
+      const { id } = req.params;
+      console.log(id);
+
+      const data = await studentModel.deleteOne({ _id: id });
+      // const saveData = await deleteStudent.save();
+      res.redirect("/student");
+    } catch (error) {
+      console.log(error);
+    }
   };
 }
 

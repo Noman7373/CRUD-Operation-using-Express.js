@@ -122,20 +122,6 @@ th {
   text-align: left;
 }
 
-button {
-  padding: 5px 10px;
-  margin-right: 5px;
-  border: none;
-  background-color: #007bff;
-  color: white;
-  border-radius: 3px;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: #0056b3;
-}
-
 form span a {
   width: 10rem;
   margin-top: 1rem;
@@ -159,4 +145,19 @@ form span a {
 .tableBtn {
   display: flex;
   gap: 0.5rem;
+}
+
+.tableBtn form button {
+  width: 4rem;
+  padding: 5px 10px;
+  margin-right: 5px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.tableBtn form button:hover {
+  background-color: rgb(3, 3, 236);
 }

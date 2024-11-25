@@ -36,14 +36,17 @@
         <tr>
           <td><%= index + 1 %></td>
           <!-- Dynamic S/No -->
-          <td><%= .name data%></td>
+          <td><%= data.name %></td>
           <td><%= data.age %></td>
           <td><%= data.fee %></td>
           <td>
             <div class="tableBtn">
-              <button>Edit</button>
-
-              <button>Delete</button>
+              <form action="/student/edit/<%= data._id %>" method="get">
+                <button>Edit</button>
+              </form>
+              <form action="/student/delete/<%= data._id %>" method="post">
+                <button>Delete</button>
+              </form>
             </div>
           </td>
         </tr>

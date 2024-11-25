@@ -2,19 +2,40 @@
 <div class="container">
   <div class="form-Container">
     <div class="form-title">
-      <h1>Edit Student</h1>
+      <h1>Update Student</h1>
     </div>
 
-    <form method="post">
+    <form method="post" action="/student/update/<%= editStudentDoc._id %>">
       <label for="name">Name *</label>
-      <input type="text" name="name" id="name" placeholder="Name" required />
+      <input
+        type="text"
+        name="name"
+        id="name"
+        placeholder="Name"
+        value="<%= editStudentDoc.name %>"
+        required
+      />
       <label for="age">Age *</label>
-      <input type="text" name="age" id="age" placeholder="Age" required />
-      <label for="name">Fee *</label>
-      <input type="number" name="name" id="name" placeholder="Fee" required />
+      <input
+        type="text"
+        name="age"
+        id="age"
+        placeholder="Age"
+        value="<%= editStudentDoc.age %>"
+        required
+      />
+      <label for="fee">Fee *</label>
+      <input
+        type="text"
+        name="fee"
+        id="fee"
+        placeholder="Fee"
+        value="<%= editStudentDoc.fee %>"
+        required
+      />
 
       <div>
-        <button type="submit">Add</button>
+        <button type="submit">Update</button>
         <span><a href="/student">Back To Home</a></span>
       </div>
     </form>
